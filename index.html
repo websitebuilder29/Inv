@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#f8e1d4">
+  <title>Una invitación especial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- ========== SECCIÓN 1: PREGUNTA PRINCIPAL ========== -->
+    <section id="seccion-pregunta" class="seccion activa glass-card">
+      <h1>¿Quieres salir conmigo este sábado?</h1>
+
+      <div class="fecha-destacada">Sábado 17 de octubre de 2026</div>
+
+      <p class="subtle-text">
+        El lugar es secreto. Solo necesito tu compañía.
+      </p>
+
+      <div class="botones-container">
+        <button class="btn btn-si" id="btn-si">Sí</button>
+        <button class="btn btn-no" id="btn-no">No</button>
+      </div>
+
+      <div class="contador-sutil" id="contador">
+        Faltan <span id="dias-restantes">...</span> días para el 17 de octubre
+      </div>
+    </section>
+
+    <!-- ========== SECCIÓN 2: RESPUESTA SÍ ========== -->
+    <section id="seccion-si" class="seccion glass-card">
+      <h1 class="titulo-secundario">Entonces prepárate para pasar un día excelente</h1>
+
+      <p class="subtle-text">
+        No te voy a contar todo. Toca cada tarjeta para descubrir una pequeña señal.
+      </p>
+
+      <!-- TARJETAS DE PISTAS INTERACTIVAS -->
+      <div class="pistas-grid">
+
+        <!-- PISTA 1 -->
+        <div class="pista-card" data-pista="1" tabindex="0" role="button" aria-label="Descubrir pista">
+          <div class="pista-interior">
+            <div class="pista-frente">
+              <span class="pista-brillo"></span>
+              <p>Hay cosas que solo se abren si el día acompaña… y creo que este lo hará.</p>
+            </div>
+            <div class="pista-atras">
+              <p>Algo vivo podría cruzarse en el camino.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PISTA 2 -->
+        <div class="pista-card" data-pista="2" tabindex="0" role="button" aria-label="Descubrir pista">
+          <div class="pista-interior">
+            <div class="pista-frente">
+              <span class="pista-brillo"></span>
+              <p>A veces perder también se disfruta, sobre todo si es contigo al otro lado.</p>
+            </div>
+            <div class="pista-atras">
+              <p>Puede que alguien diga "otra vez".</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PISTA 3 -->
+        <div class="pista-card" data-pista="3" tabindex="0" role="button" aria-label="Descubrir pista">
+          <div class="pista-interior">
+            <div class="pista-frente">
+              <span class="pista-brillo"></span>
+              <p>Puede que en algún momento se apague la luz y hable alguien que no está aquí.</p>
+            </div>
+            <div class="pista-atras">
+              <p>Y algo crujirá entre tus manos.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PISTA 4 -->
+        <div class="pista-card" data-pista="4" tabindex="0" role="button" aria-label="Descubrir pista">
+          <div class="pista-interior">
+            <div class="pista-frente">
+              <span class="pista-brillo"></span>
+              <p>Y entre todo eso, habrá momentos que no sabremos explicar después.</p>
+            </div>
+            <div class="pista-atras">
+              <p>De esos que duelen un poco en el abdomen.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barra de progreso sutil -->
+      <div class="progreso-pistas">
+        <div class="progreso-barra" id="progreso-barra"></div>
+      </div>
+
+      <!-- PISTA SECRETA FINAL -->
+      <div class="pista-final" id="pista-final">
+        <span class="pista-final-halo"></span>
+        <p>Y al final del día, cuando ya no quieras que termine… ahí entenderás todo.</p>
+      </div>
+
+      <div class="mensaje-emotivo">
+        Los detalles los irás descubriendo tú. Yo solo me encargo de que el día valga la pena.
+      </div>
+
+      <div class="centrado">
+        <button class="btn btn-pequeno" id="btn-volver-desde-si">Volver a empezar</button>
+      </div>
+
+      <div class="contador-sutil" style="margin-top: 1.5rem;">
+        Faltan <span id="dias-restantes-si">...</span> días para el 17 de octubre
+      </div>
+    </section>
+
+    <!-- ========== SECCIÓN 3: RESPUESTA NO ========== -->
+    <section id="seccion-no" class="seccion glass-card">
+      <h1 class="titulo-secundario">Está bien</h1>
+
+      <p class="subtle-text texto-grande">
+        Lamento que esta vez no se pueda. Espero que podamos agendar nuestra cita para otro día.
+      </p>
+
+      <div class="centrado">
+        <button class="btn btn-pequeno" id="btn-intentar-otro-dia">Intentarlo otro día</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
