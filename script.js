@@ -50,8 +50,7 @@ function mostrarSeccion(nombre) {
 btnSi.addEventListener('click', () => {
   mostrarSeccion('si');
   crearDestelloCorazones();
-  // Reiniciar animación de aparición de tarjetas
-  tarjetasPista.forEach((card, i) => {
+  tarjetasPista.forEach(card => {
     card.style.animation = 'none';
     void card.offsetWidth;
     card.style.animation = '';
@@ -142,7 +141,7 @@ function crearDestelloCorazones() {
 }
 
 /* =========================================================
-   ESTALLIDO DE PARTÍCULAS (al tocar la pista final)
+   ESTALLIDO DE PARTÍCULAS
    ========================================================= */
 function estallidoParticulas(x, y) {
   const cantidad = 14;
@@ -184,22 +183,18 @@ function revelarTarjeta(card) {
   const id = card.getAttribute('data-pista');
   if (id) descubiertas.add(id);
 
-  // Vibración corta en móviles compatibles
   if (navigator.vibrate) {
     try { navigator.vibrate(18); } catch (e) {}
   }
 
-  // Actualizar barra de progreso
   if (progresoBarra) {
     const pct = (descubiertas.size / TOTAL_PISTAS) * 100;
     progresoBarra.style.width = pct + '%';
   }
 
-  // Si se descubrieron todas, mostrar pista final con efecto
   if (descubiertas.size >= TOTAL_PISTAS && pistaFinal) {
     setTimeout(() => {
       pistaFinal.classList.add('visible');
-      // Pequeño estallido central desde la pista final
       const rect = pistaFinal.getBoundingClientRect();
       estallidoParticulas(rect.left + rect.width / 2, rect.top + rect.height / 2);
     }, 450);
@@ -216,7 +211,6 @@ tarjetasPista.forEach(card => {
     }
   });
 
-  // Efecto "tilt" sutil en escritorio para que se sienta viva
   card.addEventListener('mousemove', (e) => {
     if (card.classList.contains('revelada')) return;
     if (window.matchMedia('(hover: none)').matches) return;
@@ -235,7 +229,6 @@ tarjetasPista.forEach(card => {
   });
 });
 
-/* Pista final: al tocar, lanza un estallido */
 if (pistaFinal) {
   pistaFinal.addEventListener('click', (e) => {
     const rect = pistaFinal.getBoundingClientRect();
